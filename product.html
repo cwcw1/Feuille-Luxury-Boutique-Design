@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals — Feuille Luxury</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition">
+        <div class="transition-layer"></div>
+    </div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>FREE SHIPPING ON ORDERS OVER $300 — WORLDWIDE DELIVERY</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header header-light">
+        <nav class="nav">
+            <ul class="nav-left">
+                <li><a href="product.html" class="nav-link active" data-link>NEW ARRIVALS</a></li>
+                <li><a href="#" class="nav-link">SHOP</a></li>
+            </ul>
+            
+            <a href="index.html" class="logo" data-link>feuille</a>
+            
+            <ul class="nav-right">
+                <li><a href="#" class="nav-link">ABOUT</a></li>
+                <li><a href="#" class="nav-link">CART (0)</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="index.html" data-link>HOME</a></li>
+            <li><a href="product.html" data-link>NEW ARRIVALS</a></li>
+            <li><a href="#">SHOP</a></li>
+            <li><a href="#">ABOUT</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content - Shop Layout with ScrollTrigger -->
+    <main class="shop-page">
+        <div class="shop-layout">
+            
+            <!-- LEFT: Scrollable Product Grid -->
+            <div class="shop-content" id="shopContent">
+                <div class="shop-header">
+                    <h1 class="page-title reveal">NEW ARRIVALS</h1>
+                    <p class="product-count reveal">Showing 12 of 48 products</p>
+                </div>
+
+                <div class="shop-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=450&h=600&fit=crop" alt="Leather Jacket" class="product-img">
+                                <span class="product-tag">NEW</span>
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">RICK OWENS</span>
+                                <h3 class="product-name">Bauhaus Leather Jacket</h3>
+                                <span class="product-price">$2,450</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/ccp.PNG" alt="Hoodie" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">Carol Christian Poell</span>
+                                <h3 class="product-name">Object Dyed One Piece Drip Rubber Prosthetic Boot</h3>
+                                <span class="product-price">$4,005.37</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/yohji.PNG" alt="Sneakers" class="product-img">
+                                <span class="product-tag">SALE</span>
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">Yohji Yamamoto</span>
+                                <h3 class="product-name">CROW PRINT COACH JACKET</h3>
+                                <span class="product-price"><del>$2100</del> $1650</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/maisonmargiela.png" alt="Leather Bag" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">Maison Margiela</span>
+                                <h3 class="product-name">BLACK Tabi toe ankle boots</h3>
+                                <span class="product-price">$2,325</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 5 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/acne.jpg" alt="Wool Coat" class="product-img">
+                                <span class="product-tag">NEW</span>
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">ACNE STUDIOS</span>
+                                <h3 class="product-name">Oversized Wool Coat</h3>
+                                <span class="product-price">$1,800</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 6 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/ourlegacy.webp" alt="Knit Sweater" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">OUR LEGACY</span>
+                                <h3 class="product-name">Chunky Knit Sweater</h3>
+                                <span class="product-price">$420</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 7 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/lemaire.webp" alt="Leather Backpack" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">LEMAIRE</span>
+                                <h3 class="product-name">Croissant Bag</h3>
+                                <span class="product-price">$1,150</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 8 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/jilsander.webp" alt="Trousers" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">JIL SANDER</span>
+                                <h3 class="product-name">Tailored Wool Trousers</h3>
+                                <span class="product-price">$890</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 9 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/commonproject.webp" alt="White Sneakers" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">COMMON PROJECTS</span>
+                                <h3 class="product-name">Achilles Low</h3>
+                                <span class="product-price">$425</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 10 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/ami.webp" alt="T-Shirt" class="product-img">
+                                <span class="product-tag">NEW</span>
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">AMI PARIS</span>
+                                <h3 class="product-name">Heart Logo T-Shirt</h3>
+                                <span class="product-price">$195</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 11 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/stoneisland.webp" alt="Cargo Pants" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">STONE ISLAND</span>
+                                <h3 class="product-name">Ghost Cargo Pants</h3>
+                                <span class="product-price">$650</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Product 12 -->
+                    <article class="product-card reveal">
+                        <a href="#" class="product-link">
+                            <div class="product-img-wrap">
+                                <img src="imgs/therow.webp" alt="Scarf" class="product-img">
+                                <div class="product-overlay"><span>QUICK VIEW</span></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-brand">THE ROW</span>
+                                <h3 class="product-name">Cashmere Scarf</h3>
+                                <span class="product-price">$590</span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Load More -->
+                <div class="load-more reveal">
+                    <button class="btn btn-dark">LOAD MORE</button>
+                </div>
+            </div>
+
+            <!-- RIGHT: Fixed Filter Sidebar -->
+            <aside class="shop-sidebar" id="shopSidebar">
+                <div class="sidebar-inner">
+                    <h3 class="sidebar-title">FILTERS</h3>
+                    
+                    <!-- Category -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">CATEGORY</h4>
+                        <ul class="filter-list">
+                            <li><a href="#" class="filter-link active">All Products</a></li>
+                            <li><a href="#" class="filter-link">Outerwear</a></li>
+                            <li><a href="#" class="filter-link">Tops</a></li>
+                            <li><a href="#" class="filter-link">Bottoms</a></li>
+                            <li><a href="#" class="filter-link">Footwear</a></li>
+                            <li><a href="#" class="filter-link">Accessories</a></li>
+                            <li><a href="#" class="filter-link">Bags</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Designers -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">DESIGNERS</h4>
+                        <ul class="filter-list">
+                            <li><a href="#" class="filter-link">Acne Studios</a></li>
+                            <li><a href="#" class="filter-link">AMI Paris</a></li>
+                            <li><a href="#" class="filter-link">Bottega Veneta</a></li>
+                            <li><a href="#" class="filter-link">Common Projects</a></li>
+                            <li><a href="#" class="filter-link">Fear of God</a></li>
+                            <li><a href="#" class="filter-link">Jil Sander</a></li>
+                            <li><a href="#" class="filter-link">Lemaire</a></li>
+                            <li><a href="#" class="filter-link">Maison Margiela</a></li>
+                            <li><a href="#" class="filter-link">Our Legacy</a></li>
+                            <li><a href="#" class="filter-link">Rick Owens</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Size -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">SIZE</h4>
+                        <div class="size-grid">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn">S</button>
+                            <button class="size-btn active">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">PRICE</h4>
+                        <ul class="filter-list">
+                            <li><a href="#" class="filter-link">Under $500</a></li>
+                            <li><a href="#" class="filter-link">$500 - $1,000</a></li>
+                            <li><a href="#" class="filter-link">$1,000 - $2,000</a></li>
+                            <li><a href="#" class="filter-link">Over $2,000</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sort -->
+                    <div class="filter-group">
+                        <h4 class="filter-title">SORT BY</h4>
+                        <select class="sort-select">
+                            <option>Newest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Alphabetical</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-outline">CLEAR ALL FILTERS</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Instagram Carousel -->
+        <section class="instagram-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal">@Feuilleluxury</span>
+                    <h2 class="section-title reveal">FOLLOW US ON INSTAGRAM</h2>
+                </div>
+            </div>
+            
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="imgs/Carousels/1.jpg" alt="Instagram 1">
+                        <div class="carousel-overlay"><span>SEE MORE</span></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/Carousels/2.jpg" alt="Instagram 2">
+                        <div class="carousel-overlay"><span>SEE MORE</span></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/Carousels/3.jpg" alt="Instagram 3">
+                        <div class="carousel-overlay"><span>SEE MORE</span></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/Carousels/4.jpg" alt="Instagram 4">
+                        <div class="carousel-overlay"><span>SEE MORE</span></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/Carousels/5.jpg" alt="Instagram 5">
+                        <div class="carousel-overlay"><span>SEE MORE</span></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/Carousels/6.jpg" alt="Instagram 6">
+                        <div class="carousel-overlay"><span>SEE MORE</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Instagram Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <img src="/placeholder.svg" alt="Instagram Detail" id="modalImg">
+            <div class="modal-info">
+                <h3>@Feuilleluxury</h3>
+                <p>Discover our latest collection and behind-the-scenes content on Instagram.</p>
+                <a href="#" class="btn btn-dark">FOLLOW ON INSTAGRAM</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Feuille Luxury</h4>
+                    <address>
+                        565 Howe Street<br>
+                        Vancouver, BC V6C 2C2<br>
+                        Canada
+                    </address>
+                    <div style="margin-top: 10px;">                  
+                        Sunday - Thursday: 12:00 - 18:00<br>
+                        Friday & Saturday: 11:00 - 19:00
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>INFORMATION</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>SHOP</h4>
+                    <ul>
+                        <li><a href="product.html" data-link>New Arrivals</a></li>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Designers</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>NEWSLETTER</h4>
+                    <p>Subscribe for updates and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Feuille Luxury. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/feuilleluxury/" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="18" cy="6" r="1"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/feuilleluxury/" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

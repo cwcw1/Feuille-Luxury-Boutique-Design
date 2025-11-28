@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEUILLE — Style Guide</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <style>
+        /* Style Guide Specific Styles */
+        body {
+            background: #fafafa;
+            padding: 80px 0;
+        }
+
+        .styleguide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .sg-header {
+            text-align: center;
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .sg-header h1 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+        }
+
+        .sg-header p {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 0.05em;
+        }
+
+        .sg-section {
+            background: #ffffff;
+            padding: 60px;
+            margin-bottom: 40px;
+            border: 1px solid #eee;
+        }
+
+        .sg-section-title {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: #999;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .sg-section-heading {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Colors */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .color-box {
+            height: 120px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+
+        .color-info {
+            font-size: 12px;
+        }
+
+        .color-name {
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 5px;
+        }
+
+        .color-hex {
+            color: #999;
+            font-family: monospace;
+        }
+
+        /* Typography */
+        .type-specimen {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .type-specimen:last-child {
+            border-bottom: none;
+        }
+
+        .type-label {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .type-example {
+            margin-bottom: 10px;
+        }
+
+        .type-specs {
+            font-size: 11px;
+            color: #999;
+            font-family: monospace;
+            margin-top: 10px;
+        }
+
+        /* Icons */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-item:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-5px);
+        }
+
+        .icon-display {
+            margin-bottom: 15px;
+        }
+
+        .icon-label {
+            font-size: 11px;
+            color: #666;
+            letter-spacing: 0.05em;
+        }
+
+        /* Buttons */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .button-example {
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .button-example .btn {
+            margin: 10px auto;
+        }
+
+        /* Motion */
+        .motion-example {
+            padding: 60px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .motion-demo {
+            display: inline-block;
+            padding: 20px 40px;
+            background: #ffffff;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .motion-demo:hover {
+            transform: scale(1.05);
+        }
+
+        .reveal-demo {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .parallax-demo {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background: #1a1a1a;
+            border-radius: 4px;
+        }
+
+        .parallax-demo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Spacing */
+        .spacing-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .spacing-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .spacing-visual {
+            background: #1a1a1a;
+        }
+
+        .spacing-label {
+            font-size: 12px;
+            font-family: monospace;
+            color: #666;
+            min-width: 100px;
+        }
+
+        /* Code Display */
+        .code-block {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="styleguide-container">
+        
+        <!-- Header -->
+        <div class="sg-header">
+            <h1>FEUILLE</h1>
+            <p>BRAND STYLE GUIDE — DESIGN SYSTEM DOCUMENTATION</p>
+        </div>
+
+        <!-- ===============================================
+             1. COLORS
+             =============================================== -->
+        <section class="sg-section">
+            <div class="sg-section-title">01. Foundation</div>
+            <h2 class="sg-section-heading">Color Palette</h2>
+            
+            <h3 style="font-size: 18px; font-weight: 400; margin-bottom: 20px;">Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #1a1a1a;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Black</div>
+                        <div class="color-hex">#1a1a1a</div>
+                        <div class="color-hex">rgb(26, 26, 26)</div>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #ffffff; border: 2px solid #eee;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Primary White</div>
+                        <div class="color-hex">#ffffff</div>
+                        <div class="color-hex">rgb(255, 255, 255)</div>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #fafafa;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Background Gray</div>
+                        <div class="color-hex">#fafafa</div>
+                        <div class="color-hex">rgb(250, 250, 250)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Text Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #666666;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Body Text</div>
+                        <div class="color-hex">#666666</div>
+                        <div class="color-hex">rgb(102, 102, 102)</div>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #999999;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary Text</div>
+                        <div class="color-hex">#999999</div>
+                        <div class="color-hex">rgb(153, 153, 153)</div>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #333333;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Dark Hover</div>
+                        <div class="color-hex">#333333</div>
+                        <div class="color-hex">rgb(51, 51, 51)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">UI Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #eeeeee;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Border Light</div>
+                        <div class="color-hex">#eeeeee</div>
+                        <div class="color-hex">rgb(238, 238, 238)</div>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #dddddd;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Border Medium</div>
+                        <div class="color-hex">#dddddd</div>
+                        <div class="color-hex">rgb(221, 221, 221)</div>
+                    </div>
+                </div>
+                
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #f5f5f5;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Surface Gray</div>
+                        <div class="color-hex">#f5f5f5</div>
+                        <div class="color-hex">rgb(245, 245, 245)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================
+             2. TYPOGRAPHY
+             =============================================== -->
+        <section class="sg-section">
+            <div class="sg-section-title">02. Typography</div>
+            <h2 class="sg-section-heading">Type System</h2>
+            
+            <div style="margin-bottom: 40px; padding: 20px; background: #f5f5f5; border-radius: 4px;">
+                <strong>Primary Typeface:</strong> Inter<br>
+                <strong>Weights Used:</strong> 300 (Light), 400 (Regular), 500 (Medium), 600 (Semi-Bold)<br>
+                <strong>Fallback:</strong> -apple-system, BlinkMacSystemFont, sans-serif
+            </div>
+
+            <!-- Hero Title -->
+            <div class="type-specimen">
+                <div class="type-label">HERO TITLE</div>
+                <div class="type-example hero-title">VANCOUVER'S PREMIER<br>DESIGNER BOUTIQUE</div>
+                <div class="type-specs">
+                    font-size: clamp(32px, 6vw, 64px) | font-weight: 300 | letter-spacing: 0.05em | line-height: 1.1
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="type-specimen">
+                <div class="type-label">SECTION TITLE</div>
+                <div class="type-example section-title">CURATING THE FINEST IN STREETWEAR & LUXURY</div>
+                <div class="type-specs">
+                    font-size: clamp(24px, 4vw, 36px) | font-weight: 300 | letter-spacing: 0.05em | margin-bottom: 30px
+                </div>
+            </div>
+
+            <!-- Section Tag -->
+            <div class="type-specimen">
+                <div class="type-label">SECTION TAG</div>
+                <div class="type-example section-tag">NEW ARRIVALS</div>
+                <div class="type-specs">
+                    font-size: 11px | font-weight: 400 | letter-spacing: 0.2em | color: #666 | text-transform: uppercase
+                </div>
+            </div>
+
+            <!-- Body Text -->
+            <div class="type-specimen">
+                <div class="type-label">BODY TEXT</div>
+                <div class="type-example section-desc">
+                    Named after the French word for "leaf" to honor the founder's last name, feuille curates the finest in streetwear and luxury designers. With a keen eye for quality and style, we have become the top destination for fashion-forward individuals seeking exceptional pieces.
+                </div>
+                <div class="type-specs">
+                    font-size: 14px | font-weight: 400 | line-height: 1.8 | color: #666
+                </div>
+            </div>
+
+            <!-- Navigation Link -->
+            <div class="type-specimen">
+                <div class="type-label">NAVIGATION LINK</div>
+                <div class="type-example nav-link">NEW ARRIVALS</div>
+                <div class="type-specs">
+                    font-size: 11px | font-weight: 500 | letter-spacing: 0.1em | text-transform: uppercase
+                </div>
+            </div>
+
+            <!-- Product Brand -->
+            <div class="type-specimen">
+                <div class="type-label">PRODUCT BRAND</div>
+                <div class="type-example product-brand">RICK OWENS</div>
+                <div class="type-specs">
+                    font-size: 10px | font-weight: 400 | letter-spacing: 0.1em | color: #999
+                </div>
+            </div>
+
+            <!-- Product Name -->
+            <div class="type-specimen">
+                <div class="type-label">PRODUCT NAME</div>
+                <div class="type-example product-name">Bauhaus Leather Jacket</div>
+                <div class="type-specs">
+                    font-size: 13px | font-weight: 400
+                </div>
+            </div>
+
+            <!-- Product Price -->
+            <div class="type-specimen">
+                <div class="type-label">PRODUCT PRICE</div>
+                <div class="type-example product-price">$2,450</div>
+                <div class="type-specs">
+                    font-size: 13px | font-weight: 500
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================
+             3. BUTTONS
+             =============================================== -->
+        <section class="sg-section">
+            <div class="sg-section-title">03. Components</div>
+            <h2 class="sg-section-heading">Buttons</h2>
+            
+            <div class="button-grid">
+                <div class="button-example">
+                    <div class="type-label">PRIMARY BUTTON (WHITE)</div>
+                    <a href="#" class="btn btn-white">
+                        EXPLORE COLLECTION
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <div class="code-block">
+background: #ffffff<br>
+color: #1a1a1a<br>
+padding: 14px 28px<br>
+font-size: 11px<br>
+letter-spacing: 0.15em
+                    </div>
+                </div>
+
+                <div class="button-example">
+                    <div class="type-label">PRIMARY BUTTON (DARK)</div>
+                    <a href="#" class="btn btn-dark">
+                        VIEW ALL PRODUCTS
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <div class="code-block">
+background: #1a1a1a<br>
+color: #ffffff<br>
+padding: 14px 28px<br>
+transition: all 0.4s ease
+                    </div>
+                </div>
+
+                <div class="button-example">
+                    <div class="type-label">OUTLINE BUTTON</div>
+                    <button class="btn btn-outline">CLEAR ALL FILTERS</button>
+                    <div class="code-block">
+border: 1px solid #1a1a1a<br>
+background: transparent<br>
+hover: background #1a1a1a<br>
+hover: color #ffffff
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================
+             4. ICONOGRAPHY
+             =============================================== -->
+        <section class="sg-section">
+            <div class="sg-section-title">04. Iconography</div>
+            <h2 class="sg-section-heading">Icons & Symbols</h2>
+            
+            <p style="margin-bottom: 30px; color: #666;">
+                All icons use inline SVG with stroke-based design. Consistent stroke-width of 1.5-2px across all icons.
+            </p>
+
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Worldwide Delivery</div>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="1" y="3" width="15" height="13"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Fast Shipping</div>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Customer Service</div>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <polyline points="1 20 1 14 7 14"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Easy Returns</div>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Arrow Right</div>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Close</div>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="18" cy="6" r="1"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Instagram</div>
+                </div>
+
+                <div class="icon-item">
+                    <div class="icon-display">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Facebook</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================
+             5. MOTION & ANIMATIONS
+             =============================================== -->
+        <section class="sg-section">
+            <div class="sg-section-title">05. Motion Design</div>
+            <h2 class="sg-section-heading">Animation System</h2>
+            
+            <h3 style="font-size: 18px; font-weight: 400; margin-bottom: 20px;">Page Transitions</h3>
+            <p style="margin-bottom: 20px; color: #666;">
+                Smooth black overlay transitions between pages using GSAP.
+            </p>
+            <div class="code-block">
+gsap.to(transitionLayer, {
+  y: "0%",
+  duration: 0.6,
+  ease: "power3.inOut"
+})</div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Reveal Animations</h3>
+            <p style="margin-bottom: 20px; color: #666;">
+                Elements fade in and slide up as they enter the viewport.
+            </p>
+            <div class="motion-example">
+                <div class="motion-demo reveal-demo" id="revealDemo">
+                    SCROLL REVEAL DEMO
+                </div>
+            </div>
+            <div class="code-block">
+gsap.to(element, {
+  opacity: 1,
+  y: 0,
+  duration: 0.8,
+  ease: "power3.out"
+})
+
+/* Initial state */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}</div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Parallax Scrolling</h3>
+            <p style="margin-bottom: 20px; color: #666;">
+                Images move at different speeds than the scroll for depth effect.
+            </p>
+            <div class="parallax-demo">
+                <img src="imgs/4599521.jpg" alt="Parallax Demo">
+            </div>
+            <div class="code-block">
+gsap.to(image, {
+  y: "20%",
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".hero",
+    start: "top top",
+    end: "bottom top",
+    scrub: 1  // Smooth 1-second delay
+  }
+})</div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Hover Effects</h3>
+            <p style="margin-bottom: 20px; color: #666;">
+                Subtle scale and opacity transitions on interactive elements.
+            </p>
+            <div class="code-block">
+/* Product cards */
+.product-card:hover .product-img {
+  transform: scale(1.05);
+  transition: transform 0.6s ease;
+}
+
+/* Buttons */
+.btn:hover {
+  opacity: 1;
+  transition: all 0.4s ease;
+}</div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Infinite Carousel</h3>
+            <p style="margin-bottom: 20px; color: #666;">
+                GSAP-powered seamless infinite horizontal scroll.
+            </p>
+            <div class="code-block">
+gsap.to(track, {
+  x: -totalWidth,
+  duration: 30,
+  ease: "none",
+  repeat: -1,
+  modifiers: {
+    x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+  }
+})</div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Easing Functions</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
+                <div style="padding: 20px; background: #f5f5f5; border-radius: 4px;">
+                    <strong>power3.out</strong><br>
+                    <span style="color: #666; font-size: 12px;">Used for: Reveal animations, element entrances</span>
+                </div>
+                <div style="padding: 20px; background: #f5f5f5; border-radius: 4px;">
+                    <strong>power3.inOut</strong><br>
+                    <span style="color: #666; font-size: 12px;">Used for: Page transitions, modal animations</span>
+                </div>
+                <div style="padding: 20px; background: #f5f5f5; border-radius: 4px;">
+                    <strong>power2.out</strong><br>
+                    <span style="color: #666; font-size: 12px;">Used for: Filter animations, quick interactions</span>
+                </div>
+                <div style="padding: 20px; background: #f5f5f5; border-radius: 4px;">
+                    <strong>none</strong><br>
+                    <span style="color: #666; font-size: 12px;">Used for: Parallax effects (linear movement)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================
+             6. SPACING & LAYOUT
+             =============================================== -->
+        <section class="sg-section">
+            <div class="sg-section-title">06. Layout</div>
+            <h2 class="sg-section-heading">Spacing System</h2>
+            
+            <h3 style="font-size: 18px; font-weight: 400; margin-bottom: 20px;">Section Padding</h3>
+            <div class="spacing-grid">
+                <div class="spacing-item">
+                    <div class="spacing-visual" style="height: 20px; width: 120px;"></div>
+                    <div class="spacing-label">120px</div>
+                    <div style="color: #666; font-size: 12px;">Large section spacing</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-visual" style="height: 20px; width: 100px;"></div>
+                    <div class="spacing-label">100px</div>
+                    <div style="color: #666; font-size: 12px;">Medium section spacing</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-visual" style="height: 20px; width: 80px;"></div>
+                    <div class="spacing-label">80px</div>
+                    <div style="color: #666; font-size: 12px;">Small section spacing</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-visual" style="height: 20px; width: 60px;"></div>
+                    <div class="spacing-label">60px</div>
+                    <div style="color: #666; font-size: 12px;">Content block spacing</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-visual" style="height: 20px; width: 40px;"></div>
+                    <div class="spacing-label">40px</div>
+                    <div style="color: #666; font-size: 12px;">Container padding (desktop)</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-visual" style="height: 20px; width: 30px;"></div>
+                    <div class="spacing-label">30px</div>
+                    <div style="color: #666; font-size: 12px;">Grid gap</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-visual" style="height: 20px; width: 20px;"></div>
+                    <div class="spacing-label">20px</div>
+                    <div style="color: #666; font-size: 12px;">Element margin, header padding</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Grid Systems</h3>
+            <div class="code-block">
+/* 4-column product grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* 3-column shop grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Max container width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}</div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Breakpoints</h3>
+            <div style="display: grid; gap: 15px; margin-top: 20px;">
+                <div style="padding: 15px; background: #f5f5f5; border-radius: 4px; font-family: monospace; font-size: 12px;">
+                    <strong>1200px</strong> - Container max-width, large desktop
+                </div>
+                <div style="padding: 15px; background: #f5f5f5; border-radius: 4px; font-family: monospace; font-size: 12px;">
+                    <strong>1024px</strong> - 2-column product grid, footer adjustments
+                </div>
+                <div style="padding: 15px; background: #f5f5f5; border-radius: 4px; font-family: monospace; font-size: 12px;">
+                    <strong>900px</strong> - Shop layout stacks, sidebar becomes horizontal
+                </div>
+                <div style="padding: 15px; background: #f5f5f5; border-radius: 4px; font-family: monospace; font-size: 12px;">
+                    <strong>768px</strong> - Mobile menu activates, single column layouts
+                </div>
+                <div style="padding: 15px; background: #f5f5f5; border-radius: 4px; font-family: monospace; font-size: 12px;">
+                    <strong>480px</strong> - Smallest screens, single column products
+                </div>
+            </div>
+        </section>
+
+        <!-- ===============================================
+             7. UI COMPONENTS
+             =============================================== -->
+        <section class="sg-section">
+            <div class="sg-section-title">07. Components</div>
+            <h2 class="sg-section-heading">Additional UI Elements</h2>
+            
+            <h3 style="font-size: 18px; font-weight: 400; margin-bottom: 20px;">Product Cards</h3>
+            <div style="max-width: 300px;">
+                <article class="product-card">
+                    <div class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop" alt="Product" class="product-img">
+                        <span class="product-tag">NEW</span>
+                        <div class="product-overlay">
+                            <span>QUICK VIEW</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">RICK OWENS</span>
+                        <h3 class="product-name">Bauhaus Leather Jacket</h3>
+                        <span class="product-price">$2,450</span>
+                    </div>
+                </article>
+            </div>
+            <div class="code-block" style="margin-top: 20px;">
+aspect-ratio: 4/5<br>
+hover: scale(1.05)<br>
+overlay: rgba(0, 0, 0, 0.3)<br>
+transition: transform 0.6s ease
+            </div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Form Inputs</h3>
+            <form class="newsletter-form" style="max-width: 400px;">
+                <input type="email" placeholder="Your email">
+                <button type="submit">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="code-block" style="margin-top: 20px;">
+border: 1px solid #ddd<br>
+padding: 12px 15px<br>
+font-size: 12px<br>
+transition: border-color 0.3s ease
+            </div>
+
+            <h3 style="font-size: 18px; font-weight: 400; margin: 40px 0 20px;">Size Selector</h3>
+            <div class="size-grid">
+                <button class="size-btn">XS</button>
+                <button class="size-btn">S</button>
+                <button class="size-btn active">M</button>
+                <button class="size-btn">L</button>
+                <button class="size-btn">XL</button>
+            </div>
+            <div class="code-block" style="margin-top: 20px;">
+width: 40px<br>
+height: 40px<br>
+border: 1px solid #ddd<br>
+active: background #1a1a1a, color #ffffff
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 60px 0 40px; border-top: 1px solid #eee; margin-top: 60px;">
+            <h2 style="font-size: 32px; font-weight: 300; letter-spacing: 0.2em; margin-bottom: 20px;">FEUILLE</h2>
+            <p style="color: #999; font-size: 12px; letter-spacing: 0.1em;">
+                VANCOUVER'S PREMIER DESIGNER BOUTIQUE — EST. 2007
+            </p>
+            <p style="color: #ccc; font-size: 11px; margin-top: 30px;">
+                Style Guide Version 1.0 — November 2025
+            </p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Demo animation for reveal
+        gsap.to("#revealDemo", {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            delay: 0.5
+        });
+    </script>
+</body>
+</html>

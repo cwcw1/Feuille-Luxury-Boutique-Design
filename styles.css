@@ -1,0 +1,1208 @@
+/* =============================================
+   FEUILLE - Complete Stylesheet
+   A minimal, modern fashion boutique website
+   ============================================= */
+
+/* -----------------------------------------
+   1. CSS RESET & BASE
+   ----------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+address {
+  font-style: normal;
+}
+
+/* -----------------------------------------
+   2. PAGE TRANSITIONS
+   ----------------------------------------- */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.transition-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a;
+  transform: translateY(100%);
+}
+
+/* -----------------------------------------
+   3. ANNOUNCEMENT BAR
+   ----------------------------------------- */
+.announcement-bar {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  padding: 10px 20px;
+}
+
+/* Hide announcement bar on product page */
+.shop-page ~ .announcement-bar,
+body:has(.shop-page) .announcement-bar {
+  display: none;
+}
+
+/* Shop page header always at top with white background */
+body:has(.shop-page) .header {
+  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  padding: 20px 40px;
+}
+
+/* -----------------------------------------
+   4. HEADER & NAVIGATION
+   ----------------------------------------- */
+.header {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 40px;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+/* Light header variant for pages with white backgrounds */
+.header-light {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.header.scrolled {
+  background: #ffffff;
+  padding: 15px 40px;
+  top: 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  position: relative;
+}
+
+/* White nav links for dark hero backgrounds */
+.header:not(.scrolled):not(.header-light) .nav-link,
+.header:not(.scrolled):not(.header-light) .logo {
+  color: #ffffff;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  color: #1a1a1a;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.mobile-menu-btn span {
+  width: 24px;
+  height: 1px;
+  background: #1a1a1a;
+  transition: all 0.3s ease;
+}
+
+.header:not(.scrolled):not(.header-light) .mobile-menu-btn span {
+  background: #ffffff;
+}
+
+.mobile-menu-btn.active span:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.mobile-nav.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav ul {
+  text-align: center;
+}
+
+.mobile-nav li {
+  margin: 20px 0;
+}
+
+.mobile-nav a {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+/* -----------------------------------------
+   5. BUTTONS
+   ----------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-white {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.btn-white:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.btn-dark {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  background: #333;
+  opacity: 1;
+}
+
+.btn-outline {
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  background: transparent;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-outline:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* -----------------------------------------
+   6. HERO SECTION
+   ----------------------------------------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-tag {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+/* -----------------------------------------
+   7. CONTAINER & SECTIONS
+   ----------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-tag {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* -----------------------------------------
+   8. ABOUT SECTION
+   ----------------------------------------- */
+.about-section {
+  padding: 120px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 500px;
+}
+
+.section-desc {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.about-image {
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
+}
+
+/* -----------------------------------------
+   9. PRODUCTS GRID
+   ----------------------------------------- */
+.featured-section {
+  padding: 100px 0;
+  background: #fafafa;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.product-card {
+  background: #ffffff;
+}
+
+.product-link {
+  display: block;
+}
+
+.product-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #f5f5f5;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.product-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 5px 10px;
+  z-index: 1;
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.product-overlay span {
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.product-card:hover .product-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.product-card:hover .product-overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-info {
+  padding: 20px 0;
+}
+
+.product-brand {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.product-name {
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.product-price del {
+  color: #999;
+  margin-right: 8px;
+}
+
+/* -----------------------------------------
+   10. PARALLAX BANNER
+   ----------------------------------------- */
+.parallax-banner {
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+}
+
+.parallax-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parallax-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+}
+
+.parallax-tag {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.parallax-title {
+  font-size: clamp(36px, 6vw, 60px);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+/* -----------------------------------------
+   11. SERVICES SECTION
+   ----------------------------------------- */
+.services-section {
+  padding: 100px 0;
+  border-top: 1px solid #eee;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.service-item {
+  text-align: center;
+}
+
+.service-icon {
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.service-item h3 {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* -----------------------------------------
+   12. INSTAGRAM CAROUSEL
+   ----------------------------------------- */
+.instagram-section {
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 350px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.carousel-overlay span {
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.1);
+}
+
+.carousel-item:hover .carousel-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.carousel-item:hover .carousel-overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -----------------------------------------
+   13. MODAL
+   ----------------------------------------- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: #ffffff;
+  max-width: 800px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #ffffff;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.modal-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-info h3 {
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+}
+
+.modal-info p {
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+/* -----------------------------------------
+   14. SHOP PAGE LAYOUT (ScrollTrigger)
+   ----------------------------------------- */
+.shop-page {
+  padding-top: 100px;
+}
+
+.shop-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left scrollable content */
+.shop-content {
+  flex: 1;
+  padding: 40px;
+  padding-right: 60px;
+}
+
+.shop-header {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.product-count {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.05em;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.load-more {
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 80px;
+}
+
+/* Right fixed sidebar */
+.shop-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: #fafafa;
+  border-left: 1px solid #eee;
+  position: relative;
+}
+
+.sidebar-inner {
+  position: sticky;
+  top: 100px;
+  padding: 40px 30px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.filter-group {
+  margin-bottom: 30px;
+}
+
+.filter-title {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.filter-list li {
+  margin-bottom: 10px;
+}
+
+.filter-link {
+  font-size: 13px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.filter-link:hover,
+.filter-link.active {
+  color: #1a1a1a;
+  opacity: 1;
+}
+
+.filter-link.active {
+  font-weight: 500;
+}
+
+.size-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.size-btn:hover,
+.size-btn.active {
+  background: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+
+.sort-select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 15px center;
+  cursor: pointer;
+}
+
+/* -----------------------------------------
+   15. FOOTER
+   ----------------------------------------- */
+.footer {
+  background: #fafafa;
+  padding: 80px 0 40px;
+  border-top: 1px solid #eee;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-col h4 {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+
+.footer-col address {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul a {
+  font-size: 13px;
+  color: #666;
+}
+
+.footer-col ul a:hover {
+  color: #1a1a1a;
+  opacity: 1;
+}
+
+.footer-col p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.newsletter-form {
+  display: flex;
+  border: 1px solid #ddd;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  font-size: 12px;
+  background: transparent;
+}
+
+.newsletter-form input::placeholder {
+  color: #999;
+}
+
+.newsletter-form button {
+  padding: 12px 15px;
+  color: #1a1a1a;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+.footer-bottom p {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 0.05em;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #1a1a1a;
+  opacity: 1;
+}
+
+/* -----------------------------------------
+   16. ANIMATIONS & REVEAL
+   ----------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -----------------------------------------
+   17. RESPONSIVE STYLES
+   ----------------------------------------- */
+@media (max-width: 1200px) {
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid {
+    gap: 40px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  /* Shop layout becomes stacked on tablet/mobile */
+  .shop-layout {
+    flex-direction: column-reverse;
+  }
+
+  .shop-sidebar {
+    width: 100%;
+    border-left: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .sidebar-inner {
+    position: relative;
+    top: 0;
+    max-height: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .sidebar-title {
+    width: 100%;
+  }
+
+  .filter-group {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 0;
+  }
+
+  .shop-content {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .products-grid,
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .services-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .service-item {
+    text-align: left;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .modal-content {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-item {
+    width: 220px;
+    height: 220px;
+  }
+
+  .sidebar-inner {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .products-grid,
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+  .header {
+    top: 50px;
+  }
+  .carousel-item {
+    width: 180px;
+    height: 180px;
+  }
+}
