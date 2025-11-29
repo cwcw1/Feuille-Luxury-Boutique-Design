@@ -159,7 +159,7 @@ function initPageTransitions() {
 
 #### Motion Design Recipe Aspects:
 - **CONTINUITY:** Smooth transitions maintain context between pages
-- **TIMING:** Symmetrical in/out creates balanced experience
+- **TIMING:** Symmetrical in/out creates balanced experience (0.7s entry, 0.6s exit)
 - **EASING:** power3.inOut provides smooth acceleration/deceleration
 
 #### Rationale:
@@ -250,7 +250,47 @@ The Instagram carousel showcases social proof and lifestyle imagery, reinforcing
 
 ---
 
-### 7. **INTERACTIVE FILTER ANIMATIONS**
+### 7. **NEWSLETTER FORM FEEDBACK**
+
+#### Technical Implementation:
+```javascript
+const newsletterForm = document.querySelector(".newsletter-form")
+newsletterForm?.addEventListener("submit", (e) => {
+  e.preventDefault()
+  const input = newsletterForm.querySelector("input")
+
+  if (input.value) {
+    gsap.to(newsletterForm, {
+      scale: 0.98,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 1,
+      onComplete: () => {
+        input.value = ""
+        input.placeholder = "Thank you!"
+      },
+    })
+  }
+})
+```
+
+#### Motion Design Recipe Aspects:
+- **FEEDBACK:** Instant tactile response to submission
+- **TIMING:** 0.1s ultra-fast for immediate acknowledgment
+- **TRANSFORM:** Subtle scale pulse (98%) creates "button press" effect
+
+#### Rationale:
+- **0.1-second duration** provides instant feedback without delay
+- **Yoyo + repeat** creates press-and-release effect
+- **Scale to 0.98** is subtle enough to feel natural, not gimmicky
+- **Placeholder change** provides secondary confirmation
+
+#### Brand Enhancement:
+Microinteractions like this elevate the entire experience. The subtle "press" feedback makes digital interactions feel more physical and premium, similar to the satisfying click of a luxury pen or the tactile feedback of high-end packaging.
+
+---
+
+### 8. **INTERACTIVE FILTER ANIMATIONS**
 
 #### Technical Implementation:
 ```javascript
@@ -286,7 +326,42 @@ Responsive, polished animations during filtering reinforce that the website is m
 
 ---
 
-### 8. **MODAL SYSTEM ANIMATIONS**
+### 8. **HEADER SCROLL BEHAVIOR**
+
+#### Technical Implementation:
+```javascript
+function initHeader() {
+  const header = document.querySelector(".header")
+  
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset
+    
+    // Add scrolled class after 80px
+    if (currentScroll > 80) {
+      header.classList.add("scrolled")
+    } else {
+      header.classList.remove("scrolled")
+    }
+  })
+}
+```
+
+#### Motion Design Recipe Aspects:
+- **TRIGGER THRESHOLD:** 80px scroll activates state change
+- **CSS TRANSITIONS:** Smooth header style changes via class toggle
+- **PERFORMANCE:** Pure CSS transitions for smooth 60fps performance
+
+#### Rationale:
+- **80px threshold** is enough to confirm intentional scrolling, not accidental
+- **Class-based approach** keeps animation logic in CSS for better performance
+- **Skips on shop page** to maintain header visibility during filtering
+
+#### Brand Enhancement:
+The header adapts subtly as users scroll, maintaining elegant presence without being intrusive. This creates a refined browsing experience that doesn't compete with product content while maintaining brand visibility and navigation access.
+
+---
+
+### 9. **MODAL SYSTEM ANIMATIONS**
 
 #### Technical Implementation:
 ```javascript
@@ -305,23 +380,39 @@ function closeModal() {
 ```css
 .modal {
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: all 0.4s ease;
 }
 
 .modal.active {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
+}
+
+.modal-content {
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
 }
 ```
 
+#### Motion Design Recipe Aspects:
+- **TIMING:** 0.4s creates responsive yet smooth transition
+- **TRANSFORM:** Scale from 0.9 to 1.0 adds depth and polish
+- **EASING:** Ease curve provides natural acceleration
+
 #### Rationale:
-- **0.3s fade** is quick for immediate feedback but smooth enough to feel polished
+- **0.4s fade + scale** creates a polished entrance effect that feels premium
+- **Scale from 0.9 to 1.0** adds subtle "pop" effect without being excessive
 - **Body scroll lock** prevents background scrolling, maintaining focus
+- **Visibility + opacity** ensures proper accessibility and prevents click-through
 - **Escape key + background click** respects user control
 
 #### Brand Enhancement:
-The modal provides an Instagram-style detail view that feels native to modern luxury e-commerce. It's a familiar pattern that makes high-resolution product viewing feel natural and premium.
+The modal provides an Instagram-style detail view that feels native to modern luxury e-commerce. It's a familiar pattern that makes high-resolution product viewing feel natural and premium. The scale animation adds a tactile quality that enhances the premium feel.
 
 ---
 
@@ -435,10 +526,11 @@ The result is a website that doesn't just display products—it creates an exper
 | Page Transition | Navigation | 0.6-0.7s | power3.inOut | Smooth navigation |
 | Parallax | Hero, Banner | Continuous | none (linear) | Depth & interest |
 | Carousel | Instagram section | 30s loop | none (linear) | Social proof |
+| Newsletter Pulse | Footer form | 0.1s (yoyo) | default | Submit feedback |
+| Header Scroll | Header | CSS transition | - | Adaptive navigation |
 | Filter Animation | Shop page | 0.4s | power2.out | Interaction feedback |
-| Modal Fade | Image detail | 0.3s | ease | Focus shift |
+| Modal Fade + Scale | Image detail | 0.4s | ease | Focus shift |
 | Stagger Effect | Product grids | 0.1s offset | power3.out | Visual rhythm |
-| Newsletter Pulse | Footer form | 0.1s | - | Submit feedback |
 
 ---
 
