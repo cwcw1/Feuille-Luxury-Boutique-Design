@@ -44,7 +44,7 @@ The smooth, decelerating animations mirror the careful curation and attention to
 
 ---
 
-### 2. **ORCHESTRATION & SEQUENCING**
+### 2. **STAGGERING & CHOREOGRAPHY**
 
 #### Implementation:
 ```javascript
@@ -65,7 +65,7 @@ gsap.to(el, {
 - **0.1-second stagger delays** between product cards create a cascading reveal effect
 - Cards don't all appear at once (overwhelming) or too slowly (boring)
 - The `delay % 0.4` creates wave-like patterns across multiple rows
-- This orchestration guides the eye naturally from left to right, top to bottom
+- This choreography guides the eye naturally from left to right, top to bottom
 
 #### Brand Alignment:
 The sequential reveals mirror a curated gallery experience—like a personal stylist presenting pieces one by one. This reinforces Feuille's positioning as a curated boutique rather than a mass-market retailer. Each product gets its moment to shine.
@@ -109,7 +109,7 @@ function initRevealAnimations() {
 
 #### Motion Design Recipe Aspects:
 - **TIMING:** 0.8s duration with power3.out easing
-- **ORCHESTRATION:** Staggered delays create rhythm
+- **STAGGERING:** Sequential delays create rhythm
 - **TRANSFORM:** 30px vertical offset creates depth perception
 
 #### Rationale:
@@ -421,7 +421,7 @@ The motion design system for Feuille Luxury achieves three critical goals:
 2. **Improves User Experience** - Animations guide attention, provide feedback, and create delight
 3. **Demonstrates Technical Excellence** - Smooth, performant animations signal quality
 
-The combination of **timing/easing** and **orchestration/sequencing** creates a cohesive motion language that transforms a static website into an immersive brand experience. Just as Feuille carefully curates fashion pieces, every animation is thoughtfully chosen to serve both aesthetic and functional purposes.
+The combination of **timing/easing** and **staggering/choreography** creates a cohesive motion language that transforms a static website into an immersive brand experience. Just as Feuille carefully curates fashion pieces, every animation is thoughtfully chosen to serve both aesthetic and functional purposes.
 
 The result is a website that doesn't just display products—it creates an experience worthy of the luxury brand it represents.
 
